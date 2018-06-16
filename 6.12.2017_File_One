@@ -1,0 +1,23 @@
+#include<stdio.h>
+main()
+{
+	for (int j=0;j<11;j++)
+	{
+		int Number,i=0,sum,s=1;
+		printf("\n\tinput number :");
+		scanf("%d",&Number);
+		while(Number>0)
+		{
+			Number=Number-2;
+			i=i+1;
+		}
+		printf("%d",i);
+		while(i>0)
+		{
+			i=i-1;
+			s=s*2;
+		}
+		printf("\n%d",s);
+
+	}
+}
