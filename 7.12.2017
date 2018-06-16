@@ -1,0 +1,60 @@
+#include <stdio.h>
+#include <math.h>
+
+  int n, m, i;
+  int sum = 1;
+  
+  input()
+    {
+    	printf("\tEnter A Number : ");
+    	scanf("%d",&n);
+    	while(n%2 == 1)
+    	  {
+    	  	printf("\n");
+    	  	printf("\tTry Again. Enter A Number : ");
+    	    scanf("%d",&n);
+		  }
+		printf("\n");
+		return n;
+	}
+	
+  method()
+    {
+    	if(n%2 == 0)
+    	  {
+    	  	while(n>0)
+    	      {
+    	     	n = n - 2;
+    	  	    i = i + 1;
+		      }
+		  }
+		while(i>0)
+		      {
+		      	i = i - 1;
+		      	sum = sum *2;
+			  }	
+		return sum;
+	}
+	
+  Recursive_function()
+    {
+    	method();
+    	return sum;
+	}
+
+  int main(void)
+    {
+    	input();
+    	Recursive_function();
+    	printf("------------------------------------");
+	    printf("------------------------------------\n");
+	    printf("\tRabbit \t    | Count | \n");
+	    printf("------------------------------------");
+	    printf("------------------------------------\n");
+	    printf("\tRabbit \t       %d",sum);
+	    printf("\n");
+	    printf("------------------------------------");
+	    printf("------------------------------------\n");
+	    printf("\n");
+	    printf("\n");
+	}
