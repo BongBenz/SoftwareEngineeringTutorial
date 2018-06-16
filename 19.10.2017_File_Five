@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+  int main()
+    {
+    	char name[40];
+    	int age;
+    	system("cls");
+    	printf("Enter your name and age :");
+    	scanf("%s %d",name,&age);
+    	printf("Your name is...%s\n",name);
+    	printf("You are %3d years old.\n",age);
+    }
