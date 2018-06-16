@@ -1,0 +1,77 @@
+#include <stdio.h>
+#include <iostream>
+using namespace std;
+
+  int main(void)
+    {
+    	int Play_Count = 1;
+    	int Team = 1;
+    	int Sum[100][100];
+    	int Match_Results[Team][Play_Count] = {0};
+        int Score[100][100];
+		int Win[100][100];
+		int Lose[100][100];
+		int Draw[100][100];
+		
+    	printf("\n\tEnter Number Of Team : ");
+    	scanf("%d",&Team);
+    	for (int i = 0 ; i <= Team-1 ; i++)
+    	{
+    		for(int j = 0 ; j <= Play_Count-1 ; j++)
+    		{
+    		    printf("\n\tEnter Score : ");
+    	    	scanf("%d",&Match_Results[i][1]);
+    	    	
+				printf("\n\tEnter Win Count : ");
+    	    	scanf("%d",&Win[i][2]); 
+    	    	
+				printf("\n\tEnter Lose Count : ");
+    	    	scanf("%d",&Lose[i][3]);
+    	    	
+				printf("\n\tEnter Draw Count : ");
+    	    	scanf("%d",&Draw[i][4]);
+    	    	
+    	    	Sum[i][j] += Win[i][2];
+    	    	Sum[i][j] += Lose[i][3];
+    	    	Sum[i][j] += Draw[i][4];
+    	    	if(Sum[i][j]<=Match_Results[i][1])
+    	    	  {
+    	    	  	Score[i][5] += Win[i][2] *3;
+    	    	  	Score[i][5] += Draw[i][4] *1;
+				  }
+				else
+				    printf("Value is greater than the number of the play.");
+    	    }
+		}
+	    printf("\n\t\t***************************************\t\t\n");
+    	printf("------------------------------------");
+    	printf("------------------------------------\n");
+    	printf("\t Team \t\t Play_Count\t Win\t Lose\t Draw\t Total\n");
+    	printf("------------------------------------");
+	    printf("------------------------------------\n");
+	    
+	    for (int i = 0 ; i <= Team-1 ; i++)
+	      {
+	        if(i==Team)
+	        {
+	    	    printf("\n\tTotal\t");
+		   	}
+		   	else 
+			    printf("\n\t Team : %d\t",i+1);
+			for(int j = 0 ; j <= Play_Count-1 ; j++)
+			  {
+			  	printf("     %d",Match_Results[i][1]);
+			  	printf("\t          %d",Win[i][2]);
+			  	printf("\t  %d",Lose[i][3]);
+			  	printf("\t   %d",Draw[i][4]);
+			  	printf("\t   %d",Score[i][5]);
+			  }
+		  }
+	    
+	    printf("\n------------------------------------");
+	    printf("------------------------------------\n");
+	    printf("\n\t\t***************************************\t\t\n");
+	    printf("\n");
+	    printf("\n");
+	    printf("Finish the work.");
+	}
