@@ -1,0 +1,8 @@
+#include <stdio.h>
+  int main(void)
+   {
+       int j = 10,k = 20;
+       float p = 4.5, q = 10.5;
+       printf("j = %d k = %d\n",j,k);
+       printf("p = %f q = %f\n",p,q);
+   }
