@@ -1,0 +1,75 @@
+#include <stdio.h>
+#include <conio.h>
+#include <string.h>
+#include <iostream>
+
+struct student
+{
+	char name[100];
+	float score;
+};
+
+int main(void)
+{
+	int i,j=0,count,sum=0;
+	float avg = 0.0,max=0,min=100,count2;
+	char namemax[50];
+	char namemin[50];
+	
+	
+	printf("Enter student:");
+	scanf("%d",&count);
+	system("cls");
+	struct student std[count];
+	
+	for (i=0;i<count;i++)
+	{
+		printf("Enter name: ");
+		scanf("%s",std[i].name);
+		printf("Enter score: ");
+		scanf("%f",&std[i].score);
+		printf("\n");
+		while (std[i].score<1||std[i].score>100)
+		{
+			printf("Please enter score between 1-100\n");
+			printf("Enter name: ");
+			scanf("%s",std[i].name);
+			printf("Enter score: ");
+			scanf("%f",&std[i].score);
+			printf("\n");
+			sum=sum+std[i].score;
+		}
+		
+	}
+	
+	for (i=0;i<count;i++)
+	{
+		if (std[i].score>max)
+			max =std[i].score;
+			strcpy(namemax,std[i].name);
+
+		if (std[i].score<min)
+			min =std[i].score;
+			strcpy(namemin,std[i].name);
+				
+		sum=sum+std[i].score;	
+		
+	}
+	count2=count;
+	avg = float (sum)/count;
+	count=count2;
+	printf("\n");
+	for (i=0;i<count;i++)
+	{
+		printf("Name : %s\n",std[i].name);
+		printf("Score: %.2f\n",std[i].score);
+		printf("\n");
+	}
+	
+	printf("\nMax is : %.2f \n",max);
+	printf("Name is :%s",namemax);
+	printf("\nMin is : %.2f \n",min);	
+	printf("Name is :%s",namemin);	
+	printf("\nSum is : %d \n",sum);		
+	printf("\nAverage is : %.2f ",avg);
+}
