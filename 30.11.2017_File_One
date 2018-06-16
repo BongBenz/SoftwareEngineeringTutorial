@@ -1,0 +1,102 @@
+#include <stdio.h>
+#include <stdlib.h>
+  int rainfall, rainfall_max, rainfall_min, rainfall_avg, tempavg;
+  int temprainfall[12];
+  int month = 12, i = 2, n = 1;
+  // --- Error --- //
+  error()
+    {
+    	printf("Invalid Rainfall");
+	}
+  // --- First input --- //
+  first_input()
+    {
+    	printf("Please Enter The value of rainfall #%d : ",n);
+    	scanf("%d",&rainfall);
+    	rainfall_max = rainfall;
+    	rainfall_min = rainfall;
+    	
+    	tempavg += rainfall_max;
+		tempavg += rainfall_min;
+    	return rainfall_max;
+    	return rainfall_min;
+	}
+  // --- all input --- //
+  input()
+    {
+    	while(i<=month)
+    	  {
+    	  	printf("Enter The value of rainfall #%d : ",i);
+        	scanf("%d",&temprainfall[i]);
+        	if(rainfall<0)
+        	  {
+        	  	error();
+        	  	printf("Enter The value of rainfall #%d : ",i);
+        	    scanf("%d",&temprainfall[i]);
+			  }
+			tempavg += temprainfall[i];
+        	i = i + 1;
+          }
+        tempavg = tempavg / 12;
+        rainfall_avg = tempavg;
+        
+        return rainfall_avg;
+        return temprainfall[i];
+	}
+  // --- Max --- //
+  maxrain()
+    {
+    	i = 2;
+    	while(i<=month)
+    	  {
+    	    if(temprainfall[i]>rainfall_max)
+    	      {
+    	        rainfall_max = temprainfall[i];
+		      }
+		    i = i + 1;
+		  }
+    	return rainfall_max;
+	}
+  // --- Min --- //
+  minrain()
+    {
+    	i = 2;
+    	while(i<=month)
+    	  {
+    	  	if(temprainfall[i]>rainfall_max)
+    	  	  {
+    	  	  	rainfall_min = temprainfall[i];
+			  }
+			i = i + 1;
+		  }
+    	return rainfall_min;
+	}
+  // --- output --- //
+  output()
+    {
+    	system("cls");
+    	printf("\t---------------------------------");
+    	printf("\n");
+    	printf("\n");
+    	printf("\tRainFall Max : %d ",rainfall_max);
+    	printf("\n");
+    	printf("\tRainFall Min : %d ",rainfall_min);
+    	printf("\n");
+    	printf("\tRainFall Average : %d ",rainfall_avg);
+    	printf("\n");
+    	printf("\n");
+    	printf("\t---------------------------------");
+    	printf("\n");
+    	printf("\n");
+	}
+  
+  int main(void)
+    {
+    	first_input();
+    	input();
+    	maxrain();
+    	minrain();
+    	output();
+	}
+  
+  
