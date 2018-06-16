@@ -1,0 +1,7 @@
+#include <stdio.h>
+  int main(void)
+   {
+       printf("Hello,C \n");
+       printf("This is the number six : %d\n",6);
+       printf("%s is an electtronic machine \n","computer");
+   }
