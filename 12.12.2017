@@ -1,0 +1,123 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+
+  int i, temptotal;
+  float total[100];
+  int number_of_student = 2;
+  char grade[100];
+  
+  typedef struct {
+  	int id;
+  	char name[100];
+  	float midterm;
+  	float work;
+  	float final;
+  } student_info;
+  
+  input()
+    {
+    	student_info student[100];
+    	for(i = 0;i < number_of_student;i++)
+    	  {
+    	  	printf("\n\t\t***************************************\t\t\n");
+    	  	printf("\tEnter student id : ");
+    	  	scanf("%d",&student[i].id);
+	        printf("\t\t  ------------------------------------\n");
+    	  	printf("\tEnter name of student number #%d : ",i+1);
+    	    scanf("%s",&student[i].name);
+    	    printf("\t\t  ------------------------------------\n");
+    	    printf("\tEnter a midterm score : ");
+    	    scanf("%f",&student[i].midterm);
+    	    printf("\t\t  ------------------------------------\n");
+    	    while(student[i].midterm<0 || student[i].midterm>40)
+    	      {
+    	      	printf("\tAn error occurred...");
+    	      	printf("\tTry Again. Enter a midterm score : ");
+    	      	scanf("%f",&student[i].midterm);
+    	      	printf("\n\t\t  ------------------------------------\n");
+			  }
+			printf("\tEnter a work score : ");
+			scanf("%f",&student[i].work);
+			printf("\t\t  ------------------------------------\n");
+			while(student[i].work<0 || student[i].work>20)
+			  {
+			  	printf("\tAn error occurred...");
+    	      	printf("\tTry Again. Enter a work score : ");
+			  	scanf("%f",&student[i].work);
+			  	printf("\n\t\t  ------------------------------------\n");
+			  }
+			printf("\tEnter a final : ");
+			scanf("%f",&student[i].final);
+			printf("\n\t\t  ------------------------------------\n");
+			while(student[i].final<0 || student[i].final>40)
+			  {
+			    printf("\tAn error occurred...");
+    	      	printf("\tTry Again. Enter a final score : ");
+			  	scanf("%f",&student[i].final);
+			  	printf("\n\t\t  ------------------------------------\n");
+			  }
+			system("cls");
+		  }
+	}
+	
+  calculate()
+    {
+    	student_info student[100];
+    	for(i = 0;i < number_of_student;i++)
+    	  {
+    	  	temptotal = student[i].midterm + student[i].work + student[i].final;
+    	  	total[i] = temptotal;
+    	  	if(temptotal>=0 && temptotal<=49)
+    	  	  {
+    	  	  	grade[i] = 'F';
+			  }
+			else if(temptotal>=50 && temptotal<=59)
+			  {
+			  	grade[i] = 'D';
+			  }
+		    else if(temptotal>=60 && temptotal<=69)
+		      {
+		      	grade[i] = 'C';
+			  }
+			else if(temptotal>=70 && temptotal<=79)
+			  {
+			  	grade[i] = 'B';
+			  }
+			else if(temptotal>=80 && temptotal<=100)
+			  {
+			  	grade[i] = 'A';
+			  }
+		  }
+	}
+	
+  show()
+    {
+    	student_info student[100];
+    	printf("------------------------------------");
+    	printf("------------------------------------");
+	    printf("---------------------------------------\n");
+	    printf(" ID |        Name        |  Midterm |  Work |  Final  |  Total  |  Grade  |");
+	    printf("\n------------------------------------");
+	    printf("------------------------------------");
+	    printf("---------------------------------------\n");
+    	for(i = 0;i < number_of_student;i++)
+    	  {
+    	  	printf("------------------------------------");
+    	  	printf("------------------------------------");
+	        printf("---------------------------------------\n");
+    	  	printf(" ID : %d Name : %s Midterm Score : %.2f Work Score : %.2f Final : %.2f",student[i].id ,student[i].name ,student[i].midterm ,student[i].work ,student[i].final);
+    	  	printf("\n Total : %.2f",total[i]);
+    	  	printf(" Grade : %c\n",grade[i]);	
+		  }
+		printf("------------------------------------");
+		printf("------------------------------------");
+	    printf("---------------------------------------\n");
+	}
+  
+  int main(void)
+    {
+    	input();
+    	calculate();
+    	show();
+	}
