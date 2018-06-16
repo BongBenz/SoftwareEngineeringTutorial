@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <stdlib.h>
+  int main()
+   {
+       int a;
+       float b;
+       char c,ch;
+       char d[81];
+       double e;
+       system("cls");
+       printf("Enter an interger number :");
+       scanf("%d",&a);
+       printf("Enter a floating point number :");
+       scanf("%f",&b);
+       ch = getchar();
+       printf("Enter s sindle character :");
+       scanf("%c",&c);
+       printf("Enter a string :");
+       scanf("%s",&d);
+       printf("Enter a doube-floating point number :");
+       scanf("%f",&e);
+   }
