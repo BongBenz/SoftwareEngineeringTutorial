@@ -1,0 +1,39 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+
+using namespace std;
+  int main(void)
+    {
+    	int School = 2, Years = 9;
+    	int Student[School][Years] = {0};
+    	char Major[100][100];
+    	
+    	for(int i = 0 ; i < School-1 ; i++)
+    	{
+    		printf("\n\tEnter Major Name : ");
+	     	scanf("%s",&Major[i]);
+    	  	for(int j = 0 ; j < Years-1 ; j++)
+    	    {
+				printf("\tNumber of students that year %d : ",j+1);
+		    	scanf("%d",&Student[i][j]);
+		    	Student[i][8] += Student[i][j];
+		    	Student[5][j] += Student[i][j];
+		    	Student[5][8] += Student[i][j];
+		    }
+		    system("cls");
+	    }
+    	printf("\n\t\t\t\t***************************************\t\t\n");
+    	printf("------------------------------------");
+    	printf("------------------------------------\n");
+    	printf("\t Team \t\t Play_Count\t Win\t Lose\t Draw\t Total\n");
+    	printf("------------------------------------");
+	    printf("------------------------------------\n");
+	    
+        printf("------------------------------------");
+	    printf("------------------------------------\n");
+	    printf("\n\t\t\t\t***************************************\t\t\n");
+	    printf("\n");
+	    printf("\n");
+	    printf("Finish the work.");
+	}
