@@ -1,0 +1,45 @@
+#include <stdio.h>
+  int main(void)
+    {
+    	int Number[20];
+    	int Even;
+    	int i, count;
+    	
+    	printf("\tEnter Number of Student : ");
+    	scanf("%d",&count);
+    	
+    	printf("\tPlease input data\n");
+    	printf("\t******************************\n");
+    	printf("\n");
+    	for(i=0;i<count;i++)
+    	
+    	  {
+    	  	printf("\t Please Enter A Number  : ");
+    	  	scanf("%d",&Number[i]);
+    	  }
+    	printf("\n");
+    	printf("\t***** Show All Even Number ***** \n");
+    	printf("\n");
+    	for(i=0;i<count;i++)
+    	  {
+    	  	if (Number[i]>0)
+    	  	    {
+    	  	    	if (Number[i]%2==0)
+    	  	    	    {
+    	  	    	    	Even = Number[i];
+    	  	    	    	printf("\t Number is : %d\n",Even);
+						}
+		    	}
+			else
+				printf("\tError Please Try Enter Number\n");	
+	      } 
+		        
+		printf("\n");
+		printf("\t******** Show All data ******** \n");
+		printf("\n");
+		for (i=0;i<count;i++)
+		  {
+		  	printf("\t Number is : %d\n",Number[i]);
+		  }
+		printf("\n \t******************************");
+	}
