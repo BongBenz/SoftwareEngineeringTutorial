@@ -1,0 +1,95 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <iostream>
+  
+  Method()
+    {
+    	
+	}
+	
+  int main(void)
+    {
+    	int i ,l ,j ,x ,xx;
+    	int options , temp;
+    	int Matrix[100][100];
+    	
+    	printf("\n");
+    	printf("\t  Enter the length of the column : ");
+    	scanf("%d",&i);
+    	printf("\t  Enter the length of the vector : ");
+    	scanf("%d",&j);
+    	printf("\n");
+    	printf("\t|------------------------------------------------------|");
+    	
+    	printf("\n\n");
+    	printf("\t  Please select at least 1 functions");
+    	printf("\n");
+    	printf("\t  1.Choose to enter values in the column");
+    	printf("\n");
+    	printf("\t  2.Choose to enter values in the vector");
+    	printf("\n\n");
+    	printf("\t  Enter a Number : ");
+    	scanf("%d",&options);
+    	
+    	if(options == 1)
+    	  {
+    	  	x = i;
+    	  	xx = j;
+    	  	
+    	  	for(j=1;j-1<=xx;j++)
+    	  	  {
+    	  	  	for(i=1;i-1<=x;i++)
+    	  	      {
+    	  	  	    printf("\t  Enter a Number [%d],[%d] : ",i,j);
+    	  	  	    scanf("%d",&Matrix[i][j]);
+			      }
+			  }
+			
+			printf("\n");
+			printf("\t  Show Matrix");
+			printf("\n\n");
+			for(j=1;j<=xx;j++)
+    	  	  {
+    	  	  	for(i=1;i<=x;i++)
+    	  	      {
+    	  	  	    printf("\t  %d",Matrix[i][j]);
+			      }
+			    printf("\n");
+			  }
+			  
+		  }
+		
+		if(options == 2)
+		  {
+		  	x = i;
+    	  	xx = j;
+    	  	
+    	  	for(i=1;i<=xx;i++)
+    	  	  {
+    	  	  	for(j=1;j<=x;j++)
+    	  	      {
+    	  	  	    printf("\t  Enter a Number [%d],[%d] : ",i,j);
+    	  	  	    scanf("%d",&Matrix[i][j]);
+			      }
+			  }
+			
+			printf("\n");
+			printf("\t  Show Matrix");
+			printf("\n\n");  
+			for(i=1;i<=xx;i++)
+    	  	  {
+    	  	  	for(j=1;j<=x;j++)
+    	  	      {
+    	  	  	    printf("\t  %d",Matrix[i][j]);
+			      }
+			    printf("\n");
+			  }
+		  }
+		  
+		if(options < 1 ||options > 2)
+		  {
+		  	exit(0);
+		  }
+    	
+    	
+	}
