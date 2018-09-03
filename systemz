@@ -1,0 +1,316 @@
+#include<iostream>
+#include<windows.h>
+using namespace std;
+void gotoxy(int x, int y)
+{
+  static HANDLE h = NULL;  
+  if(!h)
+    h = GetStdHandle(STD_OUTPUT_HANDLE);
+  COORD c = { x, y };  
+  SetConsoleCursorPosition(h,c);
+}
+
+buildmatrix(int row,int col)
+{
+	int i,j;
+	system("cls");
+	for(i=1;i<=row;i++)
+	{
+		for(j=1;j<=col;j++)
+		{
+			if(i==1&&j==1)
+			{
+				gotoxy(38,i);
+				cout<<(char)218;		
+			}
+			else if(i==1&&j==col)
+			{
+				gotoxy(38+j*2,i);
+				cout<<(char)191;		
+			}		
+			else if(i==row&&j==1)
+			{
+				gotoxy(38,i);
+				cout<<(char)192;
+			}
+			else if(i==row&&j==col)
+			{
+				gotoxy(38+j*2,i);
+				cout<<(char)217;
+			}
+			else if(i<row&&j==1)
+			{
+				gotoxy(38,i);
+				cout<<(char)179;	
+			}
+			else if(i<row&&j==col)
+			{
+				gotoxy(38+j*2,i);
+				cout<<(char)179;	
+			}
+		}
+	}
+}
+searchsym(int v[],int jj,int ii,int row,int col)
+{
+	int m=0;
+	for(int i=1;i<=row;i++)
+    {
+       for(int j=1;j<=col;j++)
+       {
+       		if (ii==i && jj==j) return v[m];
+       		m++;
+	   }
+	}
+}
+symmetric()
+{
+	int row,col,i,j,k=1,m=0,v[100],n,re,ii,jj;
+	gotoxy(40,1);
+	cout<<"====================================";
+	gotoxy(40,6);
+	cout<<"====================================";
+	gotoxy(45,2);
+	cout<<"Symmetric Matrix";
+	gotoxy(44,4);
+	cout<<"Enter Row :";
+	cin>>row;
+	gotoxy(44,5);
+	cout<<"Enter Col :";
+	cin>>col;
+	while(row != col)
+	{
+		system("cls");
+		gotoxy(40,1);
+		cout<<"====================================";
+		gotoxy(44,4);
+		cout<<"Input Again";
+		gotoxy(40,7);
+		cout<<"====================================";
+		gotoxy(45,2);
+		cout<<"Symmetric Matrix";
+		gotoxy(44,5);
+		cout<<"Enter Row :";
+		cin>>row;
+		gotoxy(44,6);
+		cout<<"Enter Col :";
+		cin>>col;
+	}
+	buildmatrix(row,col);
+	m=0;
+    int x=39;
+    int y=1;
+    for(int i=1;i<=row;i++)
+    {
+       for(int j=1;j<=col;j++)
+       {
+      		gotoxy(x,y);
+    		if(i<=j)
+    		{
+    			cin>>v[m];		
+			}	
+      		else if(i!=j)
+      		{
+      			re=searchsym(v,i,j,row,col);
+      			cout<<re;
+			}
+			m++;	
+      		x+=2;
+       	}
+		x=39;
+		y++;
+    }
+    cout<<"Enter row to search :";
+    cin>>ii;
+    cout<<"Enter col to search :";
+    cin>>jj;
+    re=searchsym(v,ii,jj,row,col);
+    cout<<"Value is "<<re;
+}
+int searchlower(int v[],int ii,int jj,int row,int col)
+{
+	int m=0;
+	if(ii<jj)
+		return 0;
+	for(int i=1;i<=row;i++)
+    {
+       for(int j=1;j<=col;j++)
+       {
+       		if (ii==i && jj==j) return v[m];
+       		m++;
+	   }
+	}
+}
+void lower()
+{
+	gotoxy(40,1);
+	cout<<"====================================";
+	gotoxy(40,6);
+	cout<<"====================================";
+	gotoxy(45,2);
+	cout<<"Lower Triangular Matrix";
+	gotoxy(44,4);
+	cout<<"Enter Row :";
+	cin>>row;
+	gotoxy(44,5);
+	cout<<"Enter Col :";
+	cin>>col;
+	while(row != col)
+	{
+		system("cls");
+		gotoxy(40,1);
+		cout<<"====================================";
+		gotoxy(44,4);
+		cout<<"Input Again";
+		gotoxy(40,7);
+		cout<<"====================================";
+		gotoxy(45,2);
+		cout<<"Lower Triangular Matrix";
+		gotoxy(44,5);
+		cout<<"Enter Row :";
+		cin>>row;
+		gotoxy(44,6);
+		cout<<"Enter Col :";
+		cin>>col;
+	}
+	buildmatrix(row,col);
+	m=0;
+    int x=39;
+    int y=1;
+    for(int i=1;i<=row;i++)
+    {
+       for(int j=1;j<=col;j++)
+       {
+      		gotoxy(x,y);
+      		if(i<j)
+      			cout<<"0";
+    		if(i>=j)
+      			cin>>v[m];
+      		m++;
+      		x+=2;
+       	}
+		x=39;
+		y++;
+    }
+    cout<<"Enter row to search :";
+    cin>>ii;
+    cout<<"Enter col to search :";
+    cin>>jj;
+    re=searchlower(v,ii,jj,row,col);
+    cout<<"Value is "<<re;
+}
+int searchupper(int v[],int ii,int jj,int row,int col)
+{
+	int m=0;
+	if(ii>jj)
+		return 0;
+	for(int i=1;i<=row;i++)
+    {
+       for(int j=1;j<=col;j++)
+       {
+       		if (ii==i && jj==j) return v[m];
+       		m++;
+	   }
+	}
+}
+void upper()
+{
+	int row,col,i,j,k=1,m=0,v[100],n,re,ii,jj,x=39,y=1;
+	gotoxy(40,1);
+	cout<<"====================================";
+	gotoxy(40,6);
+	cout<<"====================================";
+	gotoxy(45,2);
+	cout<<"Upper Triangular Matrix";
+	gotoxy(44,4);
+	cout<<"Enter Row :";
+	cin>>row;
+	gotoxy(44,5);
+	cout<<"Enter Col :";
+	cin>>col;
+	while(row != col)
+	{
+		system("cls");
+		gotoxy(40,1);
+		cout<<"====================================";
+		gotoxy(44,4);
+		cout<<"Input Again";
+		gotoxy(40,7);
+		cout<<"====================================";
+		gotoxy(45,2);
+		cout<<"Upper Triangular Matrix";
+		gotoxy(44,5);
+		cout<<"Enter Row :";
+		cin>>row;
+		gotoxy(44,6);
+		cout<<"Enter Col :";
+		cin>>col;
+	}
+	buildmatrix(row,col);
+	m=0;
+    for(int i=1;i<=row;i++)
+    {
+       for(int j=1;j<=col;j++)
+       {
+      		gotoxy(x,y);
+      		if(i>j)
+      			cout<<"0";
+    		if(i<=j)
+      			cin>>v[m];
+      		m++;
+      		//x+=2;
+       	}
+		x=39;
+		y++;
+    }
+    cout<<"Enter row to search :";
+    cin>>ii;
+    cout<<"Enter col to search :";
+    cin>>jj;
+    re=searchupper(v,ii,jj,row,col);
+    cout<<"Value is "<<re;
+}
+
+
+
+menu()
+{
+	int choice;
+	gotoxy(40,1);
+	cout<<"====================================";
+	gotoxy(45,2);
+	cout<<"[1] Upper Triangular Matrix";
+	gotoxy(45,3);
+	cout<<"[2] Lower Triangular Matrix";
+	gotoxy(45,4);
+	cout<<"[3] Symmetric Matrix";
+	gotoxy(45,5);
+	cout<<"[4] Stop";
+	gotoxy(45,6);
+	cout<<"[ ] Select";
+	gotoxy(40,7);
+	cout<<"====================================";
+	gotoxy(46,6);
+	cin>>choice;
+	if(choice==4)
+		exit(0);
+	else if(choice == 1 || choice == 2 || choice == 3 )
+		return choice;
+	else
+	{
+		printf("Input again");
+		return menu();
+	}
+}
+main()
+{
+	int choice;
+	choice=menu();
+	system("cls");
+	if(choice==1)
+		upper();
+	else if(choice==2)
+		lower();
+	else
+		symmetric();
+}
