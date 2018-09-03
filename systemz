@@ -143,6 +143,7 @@ int searchlower(int v[],int ii,int jj,int row,int col)
 }
 void lower()
 {
+	int row,col,i,j,k=1,m=0,v[100],n,re,ii,jj;
 	gotoxy(40,1);
 	cout<<"====================================";
 	gotoxy(40,6);
@@ -258,7 +259,7 @@ void upper()
     		if(i<=j)
       			cin>>v[m];
       		m++;
-      		//x+=2;
+      		x+=2;
        	}
 		x=39;
 		y++;
